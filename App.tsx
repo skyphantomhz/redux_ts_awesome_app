@@ -8,22 +8,34 @@
  * @format
  */
 
-import React from 'react';
-import {StyleSheet} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
-import { Provider } from 'react-redux';
-import {store} from './src/app/store';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignInScreen from './src/feature/signin/SignInScreen';
+import { Provider } from "react-redux";
+import { store } from "./src/app/store";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SignInScreen from "./src/feature/signin/SignInScreen";
+import SignUpScreen from "./src/feature/signup/SignUpScreen";
+import { RootStackParams } from "./src/app/navigation/types";
+import { RouteName } from "./src/app/route";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<RootStackParams>();
 const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='SignIn'>
-          <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerShown: false }}/>
+        <Stack.Navigator initialRouteName={RouteName.SignIn}>
+          <Stack.Screen
+            name={RouteName.SignIn}
+            component={SignInScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={RouteName.SignUp}
+            component={SignUpScreen}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
@@ -37,15 +49,15 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: "400",
   },
   highlight: {
-    fontWeight: '700',
+    fontWeight: "700",
   },
 });
 
