@@ -15,6 +15,7 @@ import ButtonComponent from "../../components/button";
 import { RootStackParams } from "../../app/navigation/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RouteName } from "../../app/route";
+import { useTranslation } from "react-i18next";
 
 export type SignInNavigationProps = NativeStackScreenProps<
   RootStackParams,
@@ -22,13 +23,14 @@ export type SignInNavigationProps = NativeStackScreenProps<
 >;
 
 const SignInScreen = ({ navigation }: SignInNavigationProps) => {
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState<string>();
   const [password, setPasswrod] = useState<string>();
   const onSignIn = () => {
-    navigation.navigate("SignUp", { email: email ?? "" });
+    navigation.navigate(RouteName.Onboarding);
   };
   const onSignUp = () => {
-    navigation.navigate("SignUp", { email: email ?? "" });
+    navigation.navigate(RouteName.SignUp, { email: email ?? "" });
   };
   return (
     <SafeAreaView>
@@ -49,7 +51,7 @@ const SignInScreen = ({ navigation }: SignInNavigationProps) => {
         >
           <InputComponent
             style={{}}
-            placeholder="Email"
+            placeholder={t("email")}
             text={email}
             onChangeText={setEmail}
           >
@@ -57,7 +59,7 @@ const SignInScreen = ({ navigation }: SignInNavigationProps) => {
           </InputComponent>
           <InputComponent
             style={{ marginTop: 34 }}
-            placeholder="Password"
+            placeholder={t("password")}
             text={email}
             onChangeText={setEmail}
           >
@@ -68,18 +70,42 @@ const SignInScreen = ({ navigation }: SignInNavigationProps) => {
           <View style={{ flex: 1 }} />
           <ButtonComponent
             style={{ marginHorizontal: 25 }}
-            title="Sign In"
+            title={t("sign_in")}
             onPress={onSignIn}
           />
           <View style={{ flex: 1 }} />
           <View style={{ flexDirection: "row", justifyContent: "center" }}>
-            <Text style={styles.bottomText}>Don’t have account?&#32;</Text>
+            <Text style={styles.bottomText}>{t("dont_have_account")}&#32;</Text>
             <TouchableOpacity onPress={onSignUp}>
               <Text style={[styles.bottomText, { color: "#38972E" }]}>
-                Sign Up
+                {t("sign_up")}
               </Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View style={styles.changeLanguageContent}>
+          <Text
+            style={[
+              styles.languageItem,
+              { fontWeight: i18n.language == "en" ? "800" : "400" },
+            ]}
+            onPress={() => {
+              i18n.changeLanguage("en");
+            }}
+          >
+            English
+          </Text>
+          <Text
+            style={[
+              styles.languageItem,
+              { fontWeight: i18n.language == "vi" ? "800" : "400" },
+            ]}
+            onPress={() => {
+              i18n.changeLanguage("vi");
+            }}
+          >
+            Tiếng Việt
+          </Text>
         </View>
       </View>
     </SafeAreaView>
@@ -89,6 +115,15 @@ const SignInScreen = ({ navigation }: SignInNavigationProps) => {
 export default SignInScreen;
 
 const styles = StyleSheet.create({
+  changeLanguageContent: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 20,
+    right: 0,
+  },
+  languageItem: {
+    padding: 5,
+  },
   containerTitle: {
     flexDirection: "row",
     marginStart: 25,

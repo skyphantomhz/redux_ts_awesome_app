@@ -19,6 +19,7 @@ import SignInScreen from "./src/feature/signin/SignInScreen";
 import SignUpScreen from "./src/feature/signup/SignUpScreen";
 import { RootStackParams } from "./src/app/navigation/types";
 import { RouteName } from "./src/app/route";
+import OnboardingScreen from "./src/feature/onboarding/OnboardingScreen";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 const App = () => {
@@ -34,6 +35,11 @@ const App = () => {
           <Stack.Screen
             name={RouteName.SignUp}
             component={SignUpScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={RouteName.Onboarding}
+            component={OnboardingScreen}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
