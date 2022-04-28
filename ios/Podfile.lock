@@ -359,8 +359,6 @@ PODS:
     - React-perflogger (= 0.68.1)
   - RNGestureHandler (2.4.0):
     - React-Core
-  - RNI18n (2.0.15):
-    - React
   - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
@@ -430,7 +428,6 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNI18n (from `../node_modules/react-native-i18n`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -522,8 +519,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNI18n:
-    :path: "../node_modules/react-native-i18n"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
@@ -579,13 +574,12 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7285b499d0339104b2813a1f58ad1ada4adbd6c0
   ReactCommon: bf2888a826ceedf54b99ad1b6182d1bc4a8a3984
   RNGestureHandler: 50e6ffee79932d14ea747d4ea4cc99aac0f24e86
-  RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 17cd9a50243093b547c1e539c749928dd68152da
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 77ca7d9b36d8a2aaf123851838998bfaf6d3a0a6
+PODFILE CHECKSUM: c2b380cfb0dba3a7b1e2324342ad9842a409d487
 
 COCOAPODS: 1.11.3

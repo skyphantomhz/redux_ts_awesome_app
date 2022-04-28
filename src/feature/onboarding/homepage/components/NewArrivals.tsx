@@ -11,13 +11,29 @@ import { useAppSelector } from "../../../../app/hooks";
 import LottieView from "lottie-react-native";
 import ItemCard from "./ItemCard";
 import { Rocket } from "../../../../model/rocket";
+import { useNavigation } from "@react-navigation/native";
+import { RouteName } from "../../../../app/route";
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
+import { RootStackParams } from "../../../../app/navigation/types";
 
 const NewArrivals = () => {
   const selector = useAppSelector(newArrivalSelector);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   console.log(selector);
 
   const itemRender = (element: ListRenderItemInfo<Rocket>) => {
-    return <ItemCard content={element.item} />;
+    return (
+      <ItemCard
+        content={element.item}
+        onPress={(rocket: Rocket) => {
+          navigation.navigate(RouteName.RocketDetail, rocket);
+        }}
+      />
+    );
   };
 
   var contentView = <View></View>;

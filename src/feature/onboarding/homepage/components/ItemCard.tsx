@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Rocket } from "../../../../model/rocket";
 
 interface Props {
   content: Rocket;
+  onPress: (rocket: Rocket) => void;
 }
 
-const ItemCard = ({ content }: Props) => {
+const ItemCard = ({ content, onPress }: Props) => {
   const firstImage = content?.flickr_images[0];
   return (
     <View
@@ -54,20 +55,25 @@ const ItemCard = ({ content }: Props) => {
         >
           344 AED
         </Text>
-
-        <View
-          style={{
-            position: "absolute",
-            right: 10,
-            top: "50%",
-            backgroundColor: "#38972E",
-            paddingHorizontal: 10,
-            paddingVertical: 6,
-            borderRadius: 32,
+        <TouchableOpacity
+          onPress={() => {
+            onPress(content);
           }}
         >
-          <Text style={{ color: "white", fontSize: 11 }}>Shop Now</Text>
-        </View>
+          <View
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "50%",
+              backgroundColor: "#38972E",
+              paddingHorizontal: 10,
+              paddingVertical: 6,
+              borderRadius: 32,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 11 }}>Shop Now</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

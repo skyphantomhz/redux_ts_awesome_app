@@ -20,6 +20,8 @@ import SignUpScreen from "./src/feature/signup/SignUpScreen";
 import { RootStackParams } from "./src/app/navigation/types";
 import { RouteName } from "./src/app/route";
 import OnboardingScreen from "./src/feature/onboarding/OnboardingScreen";
+import BlankScreen from "./src/feature/blank/BlankScreen";
+import RocketDetail from "./src/feature/rocketdetail/RocketDetail";
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 const App = () => {
@@ -40,6 +42,11 @@ const App = () => {
           <Stack.Screen
             name={RouteName.Onboarding}
             component={OnboardingScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={RouteName.Blank}
+            component={BlankScreen}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
