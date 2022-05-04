@@ -11,13 +11,14 @@ import StarActiveIcon from "../../assets/icons/ic_star_active.svg";
 import HomeMainPage from "./homepage/HomeMainPage";
 import HomePage from "./homepage/HomePage";
 import ProfilePage from "./profilepage/ProfilePage";
+import StackListPage from "./stacklist/StackListPage";
 
 const Tab = createBottomTabNavigator();
 
 const OnboardingScreen = () => {
   return (
     <Tab.Navigator
-      initialRouteName={RouteName.HomeMainPage}
+      initialRouteName={RouteName.Star}
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
@@ -33,8 +34,8 @@ const OnboardingScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Star"
-        component={HomePage}
+        name={RouteName.Star}
+        component={StackListPage}
         options={{
           tabBarIcon: ({ focused }) => {
             return focused ? <StarActiveIcon /> : <StarIcon />;

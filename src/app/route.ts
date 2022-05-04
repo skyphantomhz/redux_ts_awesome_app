@@ -7,4 +7,5 @@ export enum RouteName {
   HomePage = "HomePage",
   RocketDetail = "RocketDetail",
   Profile = "Profile",
+  Star = "Star",
 }

@@ -28,7 +28,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName={RouteName.SignIn}>
+        <Stack.Navigator initialRouteName={RouteName.Onboarding}>
           <Stack.Screen
             name={RouteName.SignIn}
             component={SignInScreen}
